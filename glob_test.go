@@ -207,6 +207,18 @@ func TestQuoteMeta(t *testing.T) {
 	}
 }
 
+func TestCompileBad(t *testing.T) {
+	for id, pattern := range []string{
+		"{", "{a", "{a,", "{a,b", "{a,b\\}",
+		"[", "[a", "[a-z", "[a-z\\]",
+		"}", "a}", ",a}", "as,bc}", "\\{as,bc}",
+	} {
+		if _, err := Compile(pattern); err == nil {
+			t.Errorf("#%d _, err := Compile(%q); err = nil", id, pattern)
+		}
+	}
+}
+
 func BenchmarkParseGlob(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Compile(pattern_all)
