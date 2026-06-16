@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/gobwas/glob"
-	"github.com/gobwas/glob/match"
-	"github.com/gobwas/glob/match/debug"
+	"github.com/bi-zone/glob"
+	"github.com/bi-zone/glob/match"
+	"github.com/bi-zone/glob/match/debug"
 	"os"
 	"strings"
 	"unicode/utf8"
