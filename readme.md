@@ -4,6 +4,8 @@
 
 > Go Globbing Library.
 
+This is fork of https://github.com/gobwas/glob. New changes are documented in [CHANGLELOG.md](CHANGELOG.md).
+
 ## Install
 
 ```shell
@@ -137,8 +139,8 @@ Pattern | Fixture | Match | Speed (ns/op)
 `^ab.*ef$` | `abcdef` | `true` | 375
 `^ab.*ef$` | `af` | `false` | 145
 
-[godoc-image]: https://godoc.org/github.com/bi-zone/glob?status.svg
-[godoc-url]: https://godoc.org/github.com/bi-zone/glob
+[godoc-image]: https://pkg.go.dev/github.com/bi-zone/glob?status.svg
+[godoc-url]: https://pkg.go.dev/github.com/bi-zone/glob
 
 ## Syntax
 
