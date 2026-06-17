@@ -156,6 +156,7 @@ func (l *lexer) fetchItem() {
 	case r == eof:
 		if l.inTerms() {
 			l.errorf("unexpected end of input")
+			return
 		}
 		l.tokens.push(Token{EOF, ""})
 
@@ -169,6 +170,7 @@ func (l *lexer) fetchItem() {
 	case r == char_terms_close:
 		if !l.inTerms() {
 			l.errorf("unexpected end of input")
+			return
 		}
 		l.tokens.push(Token{TermsClose, string(r)})
 		l.termsLeave()
