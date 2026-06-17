@@ -22,6 +22,9 @@ func (self Row) matchAll(s string) bool {
 	var idx int
 	for _, m := range self.Matchers {
 		length := m.Len()
+		if length == lenZero { // "Nothing" matcher
+			continue
+		}
 
 		var next, i int
 		for next = range s[idx:] {

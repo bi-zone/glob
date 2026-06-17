@@ -115,6 +115,9 @@ func TestGlob(t *testing.T) {
 		glob(true, "{a,ab}{bc,f}", "abc"),
 		glob(true, "{*,**}{a,b}", "ab"),
 		glob(false, "{*,**}{a,b}", "ac"),
+		glob(true, "a{}b", "ab"),
+		glob(true, "{}a{}{}b{}", "ab"),
+		glob(false, "{}a{}{}b{}", "abc"),
 
 		glob(true, "/{rate,[a-z][a-z][a-z]}*", "/rate"),
 		glob(true, "/{rate,[0-9][0-9][0-9]}*", "/rate"),
