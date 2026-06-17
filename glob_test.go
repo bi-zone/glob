@@ -115,6 +115,9 @@ func TestGlob(t *testing.T) {
 		glob(true, "{a,ab}{bc,f}", "abc"),
 		glob(true, "{*,**}{a,b}", "ab"),
 		glob(false, "{*,**}{a,b}", "ac"),
+		glob(true, "a{}b", "ab"),
+		glob(true, "{}a{}{}b{}", "ab"),
+		glob(false, "{}a{}{}b{}", "abc"),
 
 		glob(true, "/{rate,[a-z][a-z][a-z]}*", "/rate"),
 		glob(true, "/{rate,[0-9][0-9][0-9]}*", "/rate"),
@@ -203,6 +206,18 @@ func TestQuoteMeta(t *testing.T) {
 		}
 		if _, err := Compile(act); err != nil {
 			t.Errorf("#%d _, err := Compile(QuoteMeta(%q) = %q); err = %q", id, test.in, act, err)
+		}
+	}
+}
+
+func TestCompileBad(t *testing.T) {
+	for id, pattern := range []string{
+		"{", "{a", "{a,", "{a,b", "{a,b\\}",
+		"[", "[a", "[a-z", "[a-z\\]",
+		"}", "a}", ",a}", "as,bc}", "\\{as,bc}",
+	} {
+		if _, err := Compile(pattern); err == nil {
+			t.Errorf("#%d _, err := Compile(%q); err = nil", id, pattern)
 		}
 	}
 }
