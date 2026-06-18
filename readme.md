@@ -1,13 +1,17 @@
 # glob.[go](https://golang.org)
 
-[![GoDoc][godoc-image]][godoc-url] [![Build Status][travis-image]][travis-url]
+[![GoDoc][godoc-image]][godoc-url]
 
 > Go Globbing Library.
+
+**This is a fork of https://github.com/gobwas/glob.**
+
+**New changes are documented in [CHANGELOG.md](CHANGELOG.md).**
 
 ## Install
 
 ```shell
-    go get github.com/gobwas/glob
+    go get github.com/bi-zone/glob
 ```
 
 ## Example
@@ -16,7 +20,7 @@
 
 package main
 
-import "github.com/gobwas/glob"
+import "github.com/bi-zone/glob"
 
 func main() {
     var g glob.Glob
@@ -137,10 +141,8 @@ Pattern | Fixture | Match | Speed (ns/op)
 `^ab.*ef$` | `abcdef` | `true` | 375
 `^ab.*ef$` | `af` | `false` | 145
 
-[godoc-image]: https://godoc.org/github.com/gobwas/glob?status.svg
-[godoc-url]: https://godoc.org/github.com/gobwas/glob
-[travis-image]: https://travis-ci.org/gobwas/glob.svg?branch=master
-[travis-url]: https://travis-ci.org/gobwas/glob
+[godoc-image]: https://pkg.go.dev/badge/github.com/bi-zone/glob.svg
+[godoc-url]: https://pkg.go.dev/github.com/bi-zone/glob
 
 ## Syntax
 

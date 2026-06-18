@@ -1,9 +1,9 @@
 package compiler
 
 import (
-	"github.com/gobwas/glob/match"
-	"github.com/gobwas/glob/match/debug"
-	"github.com/gobwas/glob/syntax/ast"
+	"github.com/bi-zone/glob/match"
+	"github.com/bi-zone/glob/match/debug"
+	"github.com/bi-zone/glob/syntax/ast"
 	"reflect"
 	"testing"
 )
